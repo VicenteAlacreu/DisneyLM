@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+inicio: any;
+personajes: any;
+
+
 
 }
+
+
