@@ -1,1 +1,22 @@
-<h1>Estas en pagina de personajes</h1>
+<h1>Personajes: </h1>
+@for (personaje of personajes; track $index ){
+    @if (personaje){
+        <div class="col-md-3 my-2">
+            <div class="card">
+            <div class="card-header bg-info">
+            {{personaje._id}}. {{personaje.name}}
+            </div>
+            <img [src]="personaje.imageUrl" alt="{{personaje.name}}"
+            
+            class="card-img-top">
+            <div class="card-body">
+            <p><strong>Enemies: </strong>{{personaje.enemies}}</p>
+            <p><strong>Allies: </strong>{{personaje.allies}}</p>
+            </div>
+            <div class="card-footer">
+                <p class="text-muted">{{personaje.createdAt}}</p>
+            </div>
+            </div>
+         </div>
+    }
+}
