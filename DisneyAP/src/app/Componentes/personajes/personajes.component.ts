@@ -12,18 +12,57 @@ import { Personaje } from '../../common/personaje';
   styleUrl: './personajes.component.css'
 })
 export class PersonajesComponent {
-  private data: DataService = inject (DataService);
-  private personajesService: PersonajesService = inject(PersonajesService)
-  datady!: DataDY;
-  personajes: Personaje[] = [];
+  personajes!: DataDY
+  private data: DataService = inject (DataService)
   constructor(){
-    this.loadPersonajes();
+    this.cargarDY();
   }
-  private loadPersonajes() {
-    this.personajesService.getPersonajes().subscribe(
-    (data: any) => {
-    this.personajes = data.results;
+
+  private cargarDY(){
+    this.data.loadDY().subscribe({
+      next: (datos: DataDY) => {
+        this.personajes = datos;
+      },
+      error: (err: string) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("Complete");
+      }
+    })
+  }
+  cambiarPag(pag: string){
+    switch(pag){
+      case "first":
+        this.loadPag("");
+        break;
+      case "prev":
+        this.loadPag(this.personajes.info.previousPage);
+        break;
+      case "next":
+        this.loadPag(this.personajes.info.nextPage);
+        break;
+      case "last":
+        this.loadPag("" + this.personajes.info.totalPages);
+        break;
+      default:
+        console.log("Error switch")
+        break;
+
     }
-    )
-    }
+  }
+
+  private loadPag(pag: string){
+    this.data.reloadPag(pag).subscribe({
+      next: (datos: DataDY) => {
+        this.personajes = datos;
+      },
+      error: (err: string) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("Complete");
+      }
+    })
+  }
 }
