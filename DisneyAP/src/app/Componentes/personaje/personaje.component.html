@@ -1,1 +1,19 @@
-<p>personaje works!</p>
+@if (miPersonaje){
+    <div class="col-md-3 my-2">
+        <div class="card">
+        <div class="card-header bg-info">
+        {{miPersonaje._id}}. {{miPersonaje.name}}
+        </div>
+        <img [src]="miPersonaje.imageUrl" alt="{{miPersonaje.name}}"
+        
+        class="card-img-top">
+        <div class="card-body">
+        <p><strong>Enemies: </strong>{{miPersonaje.enemies}}</p>
+        <p><strong>Allies: </strong>{{miPersonaje.allies}}</p>
+        </div>
+        <div class="card-footer">
+            <p class="text-muted">{{miPersonaje.createdAt}}</p>
+        </div>
+        </div>
+     </div>
+}

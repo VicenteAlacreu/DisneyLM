@@ -1,6 +1,8 @@
 export interface DataDY {
+    length: number
+    sort(): unknown
     info: Info
-    data: Daum[]
+    data: Personaje[]
   }
   
   export interface Info {
@@ -10,7 +12,7 @@ export interface DataDY {
     nextPage: string
   }
   
-  export interface Daum {
+  export interface Personaje {
     _id: number
     films: string[]
     shortFilms: any[]
