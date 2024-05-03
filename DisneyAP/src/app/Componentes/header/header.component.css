@@ -1,0 +1,16 @@
+/* Estilos para el botón */
+.btn-primary {
+    background-color: rgb(188, 188, 255); /* Color inicial del botón */
+    color: rgba(255, 255, 255, 0.976); /* Color del texto en el botón */
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+  }
+  
+  /* Cambio de color al pasar el mouse sobre el botón */
+  .btn-primary:hover {
+    background-color: rgb(57, 84, 255); /* Color al pasar el mouse sobre el botón */
+    border-radius: 5px;
+
+  }
+  
