@@ -1,11 +1,14 @@
 import { Routes } from '@angular/router';
 import { InicioComponent } from './Componentes/inicio/inicio.component';
 import { PersonajesComponent } from './Componentes/personajes/personajes.component';
+import { PersonajeComponent } from './Componentes/personaje/personaje.component';
 
 
     export const routes: Routes = [
-        { path: '', component: InicioComponent }, // Ruta para la página de inicio
-        { path: 'personajes', component: PersonajesComponent }, // Ruta para la página de personajes
+        { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+        { path: 'inicio', component: InicioComponent}, // Ruta para la página de inicio
+        { path: 'personajes', component: PersonajesComponent },// Ruta para la página de personajes
+        { path: 'personajes/:id', component: PersonajeComponent} // Ruta para la página de personaje con id
         // Otras rutas aquí...
       ];
     
