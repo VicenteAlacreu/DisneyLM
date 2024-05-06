@@ -6,11 +6,14 @@ import { Injectable, inject } from '@angular/core';
 })
 export class PersonajesService {
 
-  URL = 'https://api.disneyapi.dev/character';
+  URL = 'https://api.disneyapi.dev/character/';
   private http: HttpClient = inject (HttpClient);
   constructor() { }
   
   getPersonajes() {
   return this.http.get(this.URL);
   }
+  getPersonaje(id: number){
+    return this.http.get(this.URL+id);
+    }
 }

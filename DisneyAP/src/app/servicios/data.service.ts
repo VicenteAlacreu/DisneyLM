@@ -9,7 +9,11 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   constructor(private http: HttpClient) { }
+  
   loadDY(): Observable <DataDY>{
     return this.http.get<DataDY>("https://api.disneyapi.dev/character")
+  }
+  reloadPag(pag: string): Observable<DataDY>{
+    return this.http.get<DataDY>(pag);
   }
 }

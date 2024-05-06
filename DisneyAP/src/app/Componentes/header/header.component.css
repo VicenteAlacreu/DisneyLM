@@ -1,16 +1,25 @@
-/* Estilos para el botón */
-.btn-primary {
-    background-color: rgb(188, 188, 255); /* Color inicial del botón */
-    color: rgba(255, 255, 255, 0.976); /* Color del texto en el botón */
-    border-radius: 5px;
-    margin: 5px;
-    transition: background-color 0.3s; /* Transición suave para el cambio de color */
-  }
-  
-  /* Cambio de color al pasar el mouse sobre el botón */
-  .btn-primary:hover {
-    background-color: rgb(57, 84, 255); /* Color al pasar el mouse sobre el botón */
-    border-radius: 5px;
+/* Estilos personalizados para el header */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    margin-left: 0;
   }
-  
+}
+
+header{
+  margin-bottom: 10px;
+}
