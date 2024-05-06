@@ -1,18 +1,18 @@
 <h1>Personajes: </h1>
 <div class="row my-3">
-@for (personaje of personajes.data; track personaje._id){
+@for (personaje of personajes.data; track $index){
     <div class="col-3 my-3">
-        <a href="/personajes/{{personaje?._id}}">
+        <a href="/personajes/{{personaje._id}}">
         <div class="card">
             <div class="card-header bg-primary">
-                <h5><strong>{{personaje?._id}}. </strong>{{personaje?.name}}</h5>
+                <h5><strong>{{personaje._id}}. </strong>{{personaje.name}}</h5>
             </div>
-            <img class="card-img-top" src="{{personaje?.imageUrl}}" alt="">
+            <img class="card-img-top" src="{{personaje.imageUrl}}" alt="">
             <div class="card-body">
             
             </div>
             <div class="card-footer">
-                <p><strong>Created: </strong>{{personaje?.createdAt}}</p>
+                <p><strong>Created: </strong>{{personaje.createdAt}}</p>
             </div>
         </div>
         </a>
