@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PersonajesService } from '../../servicios/personajes.service';
-import { Personaje } from '../../common/personaje';
+import { Personaje } from '../../common/data-dy';
+import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-personaje',
@@ -11,34 +12,34 @@ import { Personaje } from '../../common/personaje';
   styleUrl: './personaje.component.css'
 })
 export class PersonajeComponent {
-  miPersonaje: Personaje = {
-    _id: 0,
-    films: [],
-    shortFilms: [],
-    tvShows: [],
-    videoGames: [],
-    parkAttractions: [],
-    allies: [],
-    enemies: [],
-    sourceUrl: "",
-    name: "",
-    imageUrl: "",
-    createdAt: "",
-    updatedAt: "",
-    url: "",
-    __v: 0
+  personaje!: Personaje
+  private data: DataService = inject (DataService);
+  private ActivatedRoute: ActivatedRoute = inject (ActivatedRoute);
+  private Router: Router = inject (Router);
+
+  constructor( ){
+    this.cargarDY();
+
   }
 
-  constructor(private personajeService: PersonajesService,
-    private activatedRoute: ActivatedRoute){
-    this.loadData();
+  private cargarDY(){
+    const id = this.ActivatedRoute.snapshot.params["id"]
+    this.data.cargarPers(id).subscribe({
+      next: (datos: Personaje) => {
+        this.personaje = datos;
+      },
+      error: (err: string) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("Complete");
+      }
+    })
   }
-  private loadData() {
-    const parametros = this.activatedRoute.snapshot.params;
-    this.personajeService.getPersonaje(parametros['parametro']).subscribe(
-    (data: any) => {
-    this.miPersonaje = data;
+  public cambiarChar(id: number){
+    if(id>0 && id<7443){
+      this.Router.navigateByUrl("/personajes/" + id).then(() => this.cargarDY())
     }
-    )
-    }
+    
+  }
 }

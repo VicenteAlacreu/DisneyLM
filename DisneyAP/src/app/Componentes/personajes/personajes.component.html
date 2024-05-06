@@ -1,22 +1,4 @@
 <h1>Personajes: </h1>
-<div class="row justify-content-center mb-4 mt-2">
-    <div class="col-md-1">
-    <button class="btn btn-primary"
-    (click)="cambiarPag('first')">First</button>
-    </div>
-    <div class="col-md-1">
-    <button class="btn btn-primary"
-    (click)="cambiarPag('previous')">Previous</button>
-    </div>
-    <div class="col-md-1">
-    <button class="btn btn-primary"
-    (click)="cambiarPag('next')">Next</button>
-    </div>
-    <div class="col-md-1">
-    <button class="btn btn-primary"
-    (click)="cambiarPag('last')">Last</button>
-    </div>
-</div>
 <div class="row my-3">
 @for (personaje of personajes.data; track personaje._id){
     <div class="col-3 my-3">
@@ -35,4 +17,22 @@
         </div>
         </a>
     </div>}
+</div>
+<div class="row justify-content-center mb-4 mt-2">
+    <div class="col-md-1">
+    <button class="btn btn-primary"
+    (click)="cambiarPag('first')">First</button>
+    </div>
+    <div class="col-md-1">
+    <button class="btn btn-primary"
+    (click)="cambiarPag('prev')">Previous</button>
+    </div>
+    <div class="col-md-1">
+    <button class="btn btn-primary"
+    (click)="cambiarPag('next')">Next</button>
+    </div>
+    <div class="col-md-1">
+    <button class="btn btn-primary"
+    (click)="cambiarPag('last')">Last</button>
+    </div>
 </div>
