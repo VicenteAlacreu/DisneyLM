@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
 import { DataDY , Personaje } from '../../common/data-dy';
-import { PersonajesService } from '../../servicios/personajes.service';
 
 @Component({
   selector: 'app-personajes',

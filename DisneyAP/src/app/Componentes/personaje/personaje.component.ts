@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PersonajesService } from '../../servicios/personajes.service';
 import { Personaje } from '../../common/data-dy';
 import { DataService } from '../../servicios/data.service';
 
@@ -18,11 +17,10 @@ export class PersonajeComponent {
   private Router: Router = inject (Router);
 
   constructor( ){
-    this.cargarDY();
-
+    this.cargarRM();
   }
 
-  private cargarDY(){
+  private cargarRM(){
     const id = this.ActivatedRoute.snapshot.params["id"]
     this.data.cargarPers(id).subscribe({
       next: (datos: Personaje) => {
@@ -37,8 +35,8 @@ export class PersonajeComponent {
     })
   }
   public cambiarChar(id: number){
-    if(id>0 && id<7443){
-      this.Router.navigateByUrl("/personajes/" + id).then(() => this.cargarDY())
+    if(id>0 && id<827){
+      this.Router.navigateByUrl("/personajes/" + id).then(() => this.cargarRM())
     }
     
   }
