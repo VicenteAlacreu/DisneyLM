@@ -12,17 +12,17 @@ import { DataService } from '../../servicios/data.service';
 })
 export class PersonajeComponent {
   personaje!: Personaje
-  private data: DataService = inject (DataService);
+  private dato: DataService = inject (DataService);
   private ActivatedRoute: ActivatedRoute = inject (ActivatedRoute);
   private Router: Router = inject (Router);
 
-  constructor( ){
+  constructor(){
     this.cargarRM();
   }
 
   private cargarRM(){
     const id = this.ActivatedRoute.snapshot.params["id"]
-    this.data.cargarPers(id).subscribe({
+    this.dato.cargarPers(id).subscribe({
       next: (datos: Personaje) => {
         this.personaje = datos;
       },
