@@ -1,8 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
-import { DataDY } from '../../common/data-dy';
-import { PersonajesService } from '../../servicios/personajes.service';
-import { Personaje } from '../../common/personaje';
+import { DataDY , Personaje } from '../../common/data-dy';
 
 @Component({
   selector: 'app-personajes',
@@ -34,7 +32,7 @@ export class PersonajesComponent {
   cambiarPag(pag: string){
     switch(pag){
       case "first":
-        this.loadPag("");
+        this.loadPag("https://api.disneyapi.dev/character/?page=1");
         break;
       case "prev":
         this.loadPag(this.personajes.info.previousPage);
@@ -43,7 +41,7 @@ export class PersonajesComponent {
         this.loadPag(this.personajes.info.nextPage);
         break;
       case "last":
-        this.loadPag("" + this.personajes.info.totalPages);
+        this.loadPag("https://api.disneyapi.dev/character/?page=" + this.personajes.info.totalPages);
         break;
       default:
         console.log("Error switch")

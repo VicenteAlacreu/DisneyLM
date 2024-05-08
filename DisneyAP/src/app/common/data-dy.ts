@@ -1,6 +1,4 @@
 export interface DataDY {
-    length: number
-    sort(): unknown
     info: Info
     data: Personaje[]
   }

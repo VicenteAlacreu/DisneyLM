@@ -1,19 +1,40 @@
-@if (miPersonaje){
-    <div class="col-md-3 my-2">
-        <div class="card">
-        <div class="card-header bg-info">
-        {{miPersonaje._id}}. {{miPersonaje.name}}
+
+   @if (personaje){
+   <div class="row my-3 justify-content-center align-items-center">
+        <button class="btn btn-info col-1" (click)="cambiarChar(personaje._id - 1)">Anterior</button>
+        <div class="col-3 my-3">
+            <div class="card" >
+                <div class="card-header bg-primary">
+                    <h5><strong>{{personaje._id}}. </strong>{{personaje.name}}</h5>
+                </div>
+                <img class="card-img-top" src="{{personaje.imageUrl}}" alt="">
+                <div class="card-body">
+                    @if (personaje.enemies){
+                        <strong>Enemies: </strong>
+                        @for (enemie of personaje.enemies; track $index){
+                            <p>{{enemie}}</p>
+                        }
+                    }
+                    @if (personaje.tvShows){
+                        <strong>Tv Shows</strong>
+                        @for (tv of personaje.tvShows; track $index){
+                            <p>{{tv}}</p>
+                        }
+                    }
+                    @if (personaje.videoGames){
+                        <strong>VideoGames</strong>
+                        @for (vg of personaje.videoGames; track $index) {
+                            <p>{{vg}}</p>
+                        }
+                    }
+                </div>
+                <div class="card-footer">
+                    <p><strong>Created: </strong>{{personaje.createdAt}}</p>
+                </div>
+            </div>
         </div>
-        <img [src]="miPersonaje.imageUrl" alt="{{miPersonaje.name}}"
-        
-        class="card-img-top">
-        <div class="card-body">
-        <p><strong>Enemies: </strong>{{miPersonaje.enemies}}</p>
-        <p><strong>Allies: </strong>{{miPersonaje.allies}}</p>
-        </div>
-        <div class="card-footer">
-            <p class="text-muted">{{miPersonaje.createdAt}}</p>
-        </div>
-        </div>
-     </div>
+        <button class="btn btn-info col-1" (click)="cambiarChar(personaje._id + 1)">Siguiente</button>
+    </div>
 }
+
+

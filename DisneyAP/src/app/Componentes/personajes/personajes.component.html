@@ -1,4 +1,23 @@
 <h1>Personajes: </h1>
+<div class="row my-3">
+@for (personaje of personajes.data; track $index){
+    <div class="col-3 my-3">
+        <a href="/personajes/{{personaje._id}}">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5><strong>{{personaje._id}}. </strong>{{personaje.name}}</h5>
+            </div>
+            <img class="card-img-top" src="{{personaje.imageUrl}}" alt="">
+            <div class="card-body">
+            
+            </div>
+            <div class="card-footer">
+                <p><strong>Created: </strong>{{personaje.createdAt}}</p>
+            </div>
+        </div>
+        </a>
+    </div>}
+</div>
 <div class="row justify-content-center mb-4 mt-2">
     <div class="col-md-1">
     <button class="btn btn-primary"
@@ -6,7 +25,7 @@
     </div>
     <div class="col-md-1">
     <button class="btn btn-primary"
-    (click)="cambiarPag('previous')">Previous</button>
+    (click)="cambiarPag('prev')">Previous</button>
     </div>
     <div class="col-md-1">
     <button class="btn btn-primary"
@@ -16,23 +35,4 @@
     <button class="btn btn-primary"
     (click)="cambiarPag('last')">Last</button>
     </div>
-</div>
-<div class="row my-3">
-@for (personaje of personajes.data; track personaje._id){
-    <div class="col-3 my-3">
-        <a href="/personajes/{{personaje?._id}}">
-        <div class="card">
-            <div class="card-header bg-primary">
-                <h5><strong>{{personaje?._id}}. </strong>{{personaje?.name}}</h5>
-            </div>
-            <img class="card-img-top" src="{{personaje?.imageUrl}}" alt="">
-            <div class="card-body">
-            
-            </div>
-            <div class="card-footer">
-                <p><strong>Created: </strong>{{personaje?.createdAt}}</p>
-            </div>
-        </div>
-        </a>
-    </div>}
 </div>
