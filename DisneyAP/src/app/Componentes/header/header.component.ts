@@ -9,9 +9,11 @@ import { Component } from '@angular/core';
   
 })
 export class HeaderComponent {
-inicio: any;
-personajes: any;
+  inicio: any;
+  personajes: any;
+  userLoginOn: boolean=false;
 
+  constructor () {}
 
 
 }

@@ -10,14 +10,20 @@ import { DataDY , Personaje } from '../../common/data-dy';
   styleUrl: './personajes.component.css'
 })
 export class PersonajesComponent {
-  personajes!: DataDY
-  private data: DataService = inject (DataService)
+  personajes: DataDY = {info: {
+    count: 7526,
+    totalPages: 5,
+    previousPage: null,
+    nextPage: 'https://example.com/api?page=2'
+  },
+  data: []};
+  private date: DataService = inject (DataService)
   constructor(){
     this.cargarDY();
   }
 
   private cargarDY(){
-    this.data.loadDY().subscribe({
+    this.date.loadDY().subscribe({
       next: (datos: DataDY) => {
         this.personajes = datos;
       },
@@ -51,7 +57,7 @@ export class PersonajesComponent {
   }
 
   private loadPag(pag: string){
-    this.data.reloadPag(pag).subscribe({
+    this.date.reloadPag(pag).subscribe({
       next: (datos: DataDY) => {
         this.personajes = datos;
       },

@@ -11,16 +11,18 @@ import { DataService } from '../../servicios/data.service';
   styleUrl: './personaje.component.css'
 })
 export class PersonajeComponent {
-  personaje!: Personaje
+  
   private dato: DataService = inject (DataService);
+  personaje!: Personaje ;
   private ActivatedRoute: ActivatedRoute = inject (ActivatedRoute);
   private Router: Router = inject (Router);
+  
 
   constructor(){
-    this.cargarRM();
+    this.cargarPer();
   }
 
-  private cargarRM(){
+  private cargarPer(){
     const id = this.ActivatedRoute.snapshot.params["id"]
     this.dato.cargarPers(id).subscribe({
       next: (datos: Personaje) => {
@@ -35,8 +37,8 @@ export class PersonajeComponent {
     })
   }
   public cambiarChar(id: number){
-    if(id>0 && id<827){
-      this.Router.navigateByUrl("/personajes/" + id).then(() => this.cargarRM())
+    if(id>0 && id<7526){
+      this.Router.navigateByUrl("/personajes/" + id).then(() => this.cargarPer())
     }
     
   }
