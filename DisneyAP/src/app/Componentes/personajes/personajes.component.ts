@@ -10,13 +10,7 @@ import { DataDY , Personaje } from '../../common/data-dy';
   styleUrl: './personajes.component.css'
 })
 export class PersonajesComponent {
-  personajes: DataDY = {info: {
-    count: 7526,
-    totalPages: 5,
-    previousPage: null,
-    nextPage: 'https://example.com/api?page=2'
-  },
-  data: []};
+  public personajes!: DataDY;
   private date: DataService = inject (DataService)
   constructor(){
     this.cargarDY();
