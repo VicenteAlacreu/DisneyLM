@@ -23,12 +23,10 @@
         
       </div>
       <div class="text-end">
-        @if (userLoginOn){
+        
           <a href="/login"><button type="button" class="btn btn-outline-light me-2">Iniciar sesion</button></a>
           <a href="/register"><button type="button" class="btn  btn-outline-light" >Registrarse</button></a>
-        } @else {
-          <button type="button" class="btn btn-outline-light me-2 text-danger" (click)="cerrarSesion()">Cerrar Sesion</button>
-        }
+       
       </div>
     </div>
   </nav>
