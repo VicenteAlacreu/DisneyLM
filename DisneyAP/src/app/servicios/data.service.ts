@@ -28,4 +28,5 @@ private login : boolean = false;
   public cambiarStatusFalse(){
     this.login = false;
   }
+
 }

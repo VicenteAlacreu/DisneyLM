@@ -17,7 +17,7 @@ export class PersonajesComponent {
     previousPage: null,
     nextPage: ""},
     data: [] 
-};;
+};
   private data: DataService = inject (DataService)
   constructor(){
     this.cargarDY();
