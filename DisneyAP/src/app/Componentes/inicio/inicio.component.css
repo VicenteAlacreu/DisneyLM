@@ -1,14 +1,16 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#container {
+   
+  background: linear-gradient(to right, #3608bd, #275bd5); /* Cambia los colores según tus preferencias */
+  align-items: center;
     height: 100vh; 
+    padding: 20px;
+    
   }
 
-  img{
-    margin: 20px;
-    width: 50%;
-  }
+ 
+
+
+  
   
  
   
