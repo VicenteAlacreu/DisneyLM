@@ -1,40 +1,44 @@
+@if (personaje.data._id != null){
 
-   @if (personaje){
+
    <div class="row my-3 justify-content-center align-items-center">
-        <button class="btn btn-info col-1" (click)="cambiarChar(personaje._id - 1)">Anterior</button>
+        <button class="btn btn-info col-1" (click)="cambiarChar(personaje.data._id - 1)">Anterior</button>
         <div class="col-3 my-3">
             <div class="card" >
                 <div class="card-header bg-primary">
-                    <h5><strong>{{personaje._id}}. </strong>{{personaje.name}}</h5>
+                    <h5><strong>{{personaje.data._id}}. </strong>{{personaje.data.name}}</h5>
                 </div>
-                <img class="card-img-top" src="{{personaje.imageUrl}}" alt="">
+                <img class="card-img-top" src="{{personaje.data.imageUrl}}" alt="">
                 <div class="card-body">
-                    @if (personaje.enemies){
+                    @if (personaje.data.enemies){
                         <strong>Enemies: </strong>
-                        @for (enemie of personaje.enemies; track $index){
+                        @for (enemie of personaje.data.enemies; track $index){
                             <p>{{enemie}}</p>
                         }
                     }
-                    @if (personaje.tvShows){
+                    @if (personaje.data.tvShows){
                         <strong>Tv Shows</strong>
-                        @for (tv of personaje.tvShows; track $index){
+                        @for (tv of personaje.data.tvShows; track $index){
                             <p>{{tv}}</p>
                         }
                     }
-                    @if (personaje.videoGames){
+                    @if (personaje.data.videoGames){
                         <strong>VideoGames</strong>
-                        @for (vg of personaje.videoGames; track $index) {
+                        @for (vg of personaje.data.videoGames; track $index) {
                             <p>{{vg}}</p>
                         }
                     }
                 </div>
                 <div class="card-footer">
-                    <p><strong>Created: </strong>{{personaje.createdAt}}</p>
+                    <p><strong>Created: </strong>{{personaje.data.createdAt}}</p>
                 </div>
             </div>
         </div>
-        <button class="btn btn-info col-1" (click)="cambiarChar(personaje._id + 1)">Siguiente</button>
+        <button class="btn btn-info col-1" (click)="cambiarChar(personaje.data._id + 1)">Siguiente</button>
     </div>
+} @else {
+    
+    <h1 class="text-danger">NO EXISTE</h1>
+    <button class="btn btn-info col-1" (click)="cambiarChar(personaje.data._id - 1)">Anterior</button>
+    <button class="btn btn-info col-1" (click)="cambiarChar(personaje.data._id + 1)">Siguiente</button>
 }
-
-

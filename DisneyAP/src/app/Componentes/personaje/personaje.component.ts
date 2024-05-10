@@ -1,7 +1,8 @@
 import { Component, Input, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Personaje } from '../../common/data-dy';
+import { DataDY, Personaje } from '../../common/data-dy';
 import { DataService } from '../../servicios/data.service';
+import { PersonajeDy } from '../../common/personaje-dy';
 
 @Component({
   selector: 'app-personaje',
@@ -13,19 +14,20 @@ import { DataService } from '../../servicios/data.service';
 export class PersonajeComponent {
   
   private dato: DataService = inject (DataService);
-  personaje!: Personaje;
+  personaje!: PersonajeDy;
   private ActivatedRoute: ActivatedRoute = inject (ActivatedRoute);
   private Router: Router = inject (Router);
   
 
   constructor(){
     this.cargarPer();
+    
   }
 
   private cargarPer(){
-    const id = this.ActivatedRoute.snapshot.params["id"]
+    const id = this.ActivatedRoute.snapshot.params["id"];
     this.dato.cargarPers(id).subscribe({
-      next: (datos: Personaje) => {
+      next: (datos: PersonajeDy) => {
         this.personaje = datos;
       },
       error: (err: string) => {
