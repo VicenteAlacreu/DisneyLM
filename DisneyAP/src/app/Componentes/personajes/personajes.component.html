@@ -1,5 +1,6 @@
+<div class="container">
 <h1>Personajes: </h1>
-<div class="row my-3">
+<div class="row my-3 ">
     @for (personaje of personajes.data; track $index){
         @if (personaje != null){
         <div class="col-3 my-3">
@@ -38,4 +39,5 @@
     <button class="btn btn-primary"
     (click)="cambiarPag('last')">Last</button>
     </div>
+</div>
 </div>
