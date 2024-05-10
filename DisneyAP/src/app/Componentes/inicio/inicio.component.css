@@ -1,9 +1,9 @@
 #container {
-   
-  background: linear-gradient(to right, #3608bd, #275bd5); /* Cambia los colores según tus preferencias */
+   display: flex;
+  background: linear-gradient(to right, #a398ba, rgb(172, 197, 244)); /* Cambia los colores según tus preferencias */
   align-items: center;
-    height: 100vh; 
-    padding: 20px;
+  flex-direction: column;
+
     
   }
 
