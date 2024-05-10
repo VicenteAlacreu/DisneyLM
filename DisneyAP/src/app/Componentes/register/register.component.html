@@ -9,26 +9,26 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Crear una Cuenta</h2>
-
+              
               <form>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input type="text" id="form3Example1cg" [formControl]="nombre" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Nombre</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email" id="form3Example3cg" [formControl]="email" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example3cg">Email</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" id="form3Example4cg" [formControl]="password" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">Contraseña</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <input type="password" id="form3Example4cdg" [formControl]="repeatPassword" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">Repite la Contraseña</label>
                 </div>
 
@@ -48,6 +48,12 @@
                     class="fw-bold text-body"><u>Acceder aqui</u></a></p>
 
               </form>
+              @if (crearCuenta()){
+                <p class="text-warning text-center">CUENTA CREADA</p>
+              } @else {
+                <p class="text-danger text-center">NO SE HA PODIDO CREAR LA CUENTA</p>
+                <p class="text-danger text-center">REVISA QUE NO ESTE CREADA O LAS CONTRASEÑAS COINCIDAN</p>
+              }
 
             </div>
           </div>    

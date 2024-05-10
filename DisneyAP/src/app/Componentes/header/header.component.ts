@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   inicio: any;
   personajes: any;
-  userLoginOn: boolean=false;
+  public userLoginOn: boolean=false;
 
   constructor () {}
 
