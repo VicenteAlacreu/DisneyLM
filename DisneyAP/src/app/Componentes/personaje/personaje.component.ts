@@ -13,7 +13,7 @@ import { DataService } from '../../servicios/data.service';
 export class PersonajeComponent {
   
   private dato: DataService = inject (DataService);
-  personaje!: Personaje ;
+  personaje!: Personaje;
   private ActivatedRoute: ActivatedRoute = inject (ActivatedRoute);
   private Router: Router = inject (Router);
   
