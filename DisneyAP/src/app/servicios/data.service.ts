@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-
+private login : boolean = false;
   constructor(private http: HttpClient) { }
   
   loadDY(): Observable <DataDY>{
@@ -18,5 +18,14 @@ export class DataService {
   }
   reloadPag(pag: string): Observable<DataDY>{
     return this.http.get<DataDY>(pag);
+  }
+  public statusLogin(){
+    return this.login;
+  }
+  public cambiarStatusTrue(){
+    this.login = true;
+  }
+  public cambiarStatusFalse(){
+    this.login = false;
   }
 }
