@@ -18,11 +18,7 @@ header{
   color: #aaa;
 }
 
-@media (max-width: 768px) {
-  .navbar-nav .nav-link {
-    margin-left: 0;
-  }
-}
+
 
 
 
