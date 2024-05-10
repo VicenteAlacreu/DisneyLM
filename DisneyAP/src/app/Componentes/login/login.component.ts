@@ -18,20 +18,18 @@ export class LoginComponent {
   
   protected em = new FormControl('');
   protected pass = new FormControl('');
-  lista: User[] = [];
+  lista: User[] = User.users;
   //coger lista users de la interfaz
   head: DataService = inject (DataService);
-  user!: User;
   
   
   constructor(){
-    this.lista = User.users;
+    
   }
   login(){
-    User.verLista();
+    
     for (let i = 0; i < this.lista.length; i++){
       if (this.lista[i].email === this.em.value && this.pass.value === this.lista[i].password){
-        // hacer referencia al userLoginOn de Header component
         this.head.cambiarStatusTrue();
         console.log("INICIADO")
         break;
