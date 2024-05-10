@@ -1,5 +1,5 @@
 export class User {
-    static users: any[] = [];
+    static users: User[] = [];
     constructor(public nombre: string, public email: string, public password: string){
 
     }
@@ -14,23 +14,12 @@ export class User {
         return hecho;
     }
     public static verLista(){
-        for (let i = 0; this.users.length < 5; i++){
-            console.log(this.users[i].toString());
-        }
+        let a = this.users.length;
+        console.log(a);
+        this.users.forEach(e => {
+            console.log(e);
+        });
     }
-    
-    public static crearCuenta(nombre: string, email: string, password: string, repeatPassword: string){
-    if (password === repeatPassword){
-      let usuario  = new User(nombre , email, password);
-      
-      if (User.anyadirALista(usuario)){
-        console.log("Usuario anyadido");
-      } else {
-        console.log("Error al anyadir");
-      }
-    }
-}
-    
     
     
 }
