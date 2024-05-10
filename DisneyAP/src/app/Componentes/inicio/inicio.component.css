@@ -3,9 +3,11 @@
   background: linear-gradient(to right, #3608bd, #275bd5); /* Cambia los colores según tus preferencias */
   align-items: center;
     height: 100vh; 
-    margin: 0,0,0,0;
+    padding: 20px;
     
   }
+
+ 
 
 
   
