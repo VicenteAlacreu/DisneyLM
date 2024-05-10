@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-header',
@@ -10,19 +9,8 @@ import { DataService } from '../../servicios/data.service';
   
 })
 export class HeaderComponent {
-  userLoginOn: DataService = inject (DataService);
 
-  constructor () {}
   
-  cerrarSesion(){
-    this.userLoginOn.cambiarStatusFalse();
-
-    if (this.userLoginOn.statusLogin()){
-      console.log("STATUS ON");
-    } else {
-      console.log("STATUS OFF");
-    }
-  }
 
 }
 

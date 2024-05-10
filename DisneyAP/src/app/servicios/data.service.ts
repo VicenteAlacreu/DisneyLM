@@ -19,14 +19,4 @@ private login : boolean = false;
   reloadPag(pag: string): Observable<DataDY>{
     return this.http.get<DataDY>(pag);
   }
-  public statusLogin(){
-    return this.login;
-  }
-  public cambiarStatusTrue(){
-    this.login = true;
-  }
-  public cambiarStatusFalse(){
-    this.login = false;
-  }
-
 }
