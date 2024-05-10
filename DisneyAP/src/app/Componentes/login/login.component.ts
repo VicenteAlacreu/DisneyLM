@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { User } from '../../clases/user';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
+import { DataService } from '../../servicios/data.service';
 
 
 
@@ -15,21 +16,31 @@ import { HeaderComponent } from '../header/header.component';
 export class LoginComponent {  
  //crear logica para coger datos del formulario y verificar si existe esa cuenta
   
-  protected email = new FormControl('');
-  protected password = new FormControl('');
-  lista: User[] = User.users;
+  protected em = new FormControl('');
+  protected pass = new FormControl('');
+  lista: User[] = [];
   //coger lista users de la interfaz
+  head: DataService = inject (DataService);
+  user!: User;
+  
   
   constructor(){
-
+    this.lista = User.users;
   }
   login(){
-    console.log(this.email.value + " " + this.password.value);
+    User.verLista();
     for (let i = 0; i < this.lista.length; i++){
-      if (this.lista[i].email === this.email.value && this.password.value === this.lista[i].password){
+      if (this.lista[i].email === this.em.value && this.pass.value === this.lista[i].password){
         // hacer referencia al userLoginOn de Header component
-        
+        this.head.cambiarStatusTrue();
+        console.log("INICIADO")
+        break;
       }
+    }
+    if (this.head.statusLogin()){
+      console.log("trueLogin")
+    } else {
+      console.log("Error login")
     }
    
   }

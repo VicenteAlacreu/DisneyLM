@@ -1,6 +1,6 @@
 export interface DataDY {
     info: Info
-    data: Personaje[]
+    data: Personaje[];
   }
   
   export interface Info {

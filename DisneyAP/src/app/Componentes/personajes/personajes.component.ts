@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
-import { DataDY , Personaje } from '../../common/data-dy';
+import { DataDY , Personaje, Info } from '../../common/data-dy';
+
 
 @Component({
   selector: 'app-personajes',
@@ -10,14 +11,20 @@ import { DataDY , Personaje } from '../../common/data-dy';
   styleUrl: './personajes.component.css'
 })
 export class PersonajesComponent {
-  public personajes!: DataDY;
-  private date: DataService = inject (DataService)
+  public personajes: DataDY= {
+    info:  {count: 0,
+    totalPages: 0,
+    previousPage: null,
+    nextPage: ""},
+    data: [] 
+};;
+  private data: DataService = inject (DataService)
   constructor(){
     this.cargarDY();
   }
 
   private cargarDY(){
-    this.date.loadDY().subscribe({
+    this.data.loadDY().subscribe({
       next: (datos: DataDY) => {
         this.personajes = datos;
       },
@@ -51,7 +58,7 @@ export class PersonajesComponent {
   }
 
   private loadPag(pag: string){
-    this.date.reloadPag(pag).subscribe({
+    this.data.reloadPag(pag).subscribe({
       next: (datos: DataDY) => {
         this.personajes = datos;
       },
