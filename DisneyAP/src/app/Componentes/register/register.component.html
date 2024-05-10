@@ -41,20 +41,19 @@
 
                 <div class="d-flex justify-content-center">
                   <button type="button"
-                    data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrarse</button>
+                    data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="newAccount()">Registrarse</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Ya tienes una cuenta? <a href="login"
                     class="fw-bold text-body"><u>Acceder aqui</u></a></p>
 
               </form>
-              @if (crearCuenta()){
-                <p class="text-warning text-center">CUENTA CREADA</p>
-              } @else {
+              @if (cuentaCreada === 1){
                 <p class="text-danger text-center">NO SE HA PODIDO CREAR LA CUENTA</p>
                 <p class="text-danger text-center">REVISA QUE NO ESTE CREADA O LAS CONTRASEÑAS COINCIDAN</p>
-              }
-
+              } @else if (cuentaCreada === 0) {
+                <p class="text-warning text-center">CUENTA CREADA</p>
+              } 
             </div>
           </div>    
         </div>
