@@ -2,3 +2,7 @@ a{
     text-decoration: none !important;
 }
 
+.card-img-top {
+    object-fit: cover; /* Hace que las imágenes se ajusten dentro del tamaño de la tarjeta */
+    height: 200px; /* Altura deseada de la imagen */
+  }
