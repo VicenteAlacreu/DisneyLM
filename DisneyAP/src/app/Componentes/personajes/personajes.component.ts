@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
 import { DataDY , Personaje, Info } from '../../common/data-dy';
-
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-personajes',
@@ -27,6 +27,7 @@ export class PersonajesComponent {
     this.data.loadDY().subscribe({
       next: (datos: DataDY) => {
         this.personajes = datos;
+        datos.data.forEach(personaje => {personaje.createdAt = format(new Date(personaje.createdAt), 'dd/MM/yyyy')}); 
       },
       error: (err: string) => {
         console.log(err);

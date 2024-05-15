@@ -1,40 +1,73 @@
+@if (personaje.data._id){
 
-   @if (personaje){
+
    <div class="row my-3 justify-content-center align-items-center">
-        <button class="btn btn-info col-1" (click)="cambiarChar(personaje._id - 1)">Anterior</button>
+        <button class="btn btn-info col-1" (click)="cambiarChar(personaje.data._id - 1)">Anterior</button>
         <div class="col-3 my-3">
             <div class="card" >
                 <div class="card-header bg-primary">
-                    <h5><strong>{{personaje._id}}. </strong>{{personaje.name}}</h5>
+                    <h5><strong>{{personaje.data._id}}. </strong>{{personaje.data.name}}</h5>
                 </div>
-                <img class="card-img-top" src="{{personaje.imageUrl}}" alt="">
+                <img class="card-img-top" src="{{personaje.data.imageUrl}}" alt="">
                 <div class="card-body">
-                    @if (personaje.enemies){
-                        <strong>Enemies: </strong>
-                        @for (enemie of personaje.enemies; track $index){
+                    @if (personaje.data.enemies.length > 0){
+                        <strong>Enemigos: </strong>
+                        @for (enemie of personaje.data.enemies; track $index){
                             <p>{{enemie}}</p>
                         }
                     }
-                    @if (personaje.tvShows){
-                        <strong>Tv Shows</strong>
-                        @for (tv of personaje.tvShows; track $index){
+                    @if (personaje.data.allies.length > 0){
+                        <strong>Aliados: </strong>
+                        @for (enemie of personaje.data.enemies; track $index){
+                            <p>{{enemie}}</p>
+                        }
+                    }
+                    @if (personaje.data.tvShows.length > 0){
+                        <strong>Series TV: </strong>
+                        @for (tv of personaje.data.tvShows; track $index){
                             <p>{{tv}}</p>
                         }
                     }
-                    @if (personaje.videoGames){
-                        <strong>VideoGames</strong>
-                        @for (vg of personaje.videoGames; track $index) {
+                    @if (personaje.data.videoGames.length > 0){
+                        <strong>VideoJuegos: </strong>
+                        @for (vg of personaje.data.videoGames; track $index) {
                             <p>{{vg}}</p>
                         }
+                        
+                    }
+                    @if (personaje.data.shortFilms.length > 0){
+                        <strong>Cortos: </strong>
+                        @for (vg of personaje.data.shortFilms; track $index) {
+                            <p>{{vg}}</p>
+                        }
+                        
+                    }
+                    @if (personaje.data.parkAttractions.length > 0){
+                        <strong>Atracciones: </strong>
+                        @for (vg of personaje.data.parkAttractions; track $index) {
+                            <p>{{vg}}</p>
+                        }
+                        
                     }
                 </div>
                 <div class="card-footer">
-                    <p><strong>Created: </strong>{{personaje.createdAt}}</p>
+                    <p><strong>Created: </strong>{{personaje.data.createdAt}}</p>
                 </div>
             </div>
         </div>
-        <button class="btn btn-info col-1" (click)="cambiarChar(personaje._id + 1)">Siguiente</button>
+        <button class="btn btn-info col-1" (click)="cambiarChar(personaje.data._id + 1)">Siguiente</button>
     </div>
+} @else {
+    <div class="row m-5 justify-content-center align-items-center ">
+        <div class="card col-auto" style="max-width: 250px;">
+            <div class="card-header bg-primary">
+                <h5 class="text-warning">Personaje en Mantenimiento</h5>
+            </div>
+            <img class="card-img-top" src="../../../assets/Warning.jpg" width="150px" height="auto" alt="">
+            <div class="card-body">
+                <p>Vuelve a la página de <a href="/personajes">personajes</a></p>
+            </div>
+        </div>
+    </div>
+    
 }
-
-
